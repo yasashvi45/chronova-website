@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHRONOVA - Luxury Timepieces</title>
+    
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">CHRONOVA</div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#" onclick="showPage('home')">HOME</a></li>
+                <li><a href="#" onclick="showPage('men')">MEN</a></li>
+                <li><a href="#" onclick="showPage('women')">WOMEN</a></li>
+                <li><a href="#" onclick="showPage('smart')">SMART</a></li>
+                <li><a href="#" onclick="showPage('premium')">PREMIUM</a></li>
+                <li><a href="#" onclick="showPage('brands')">BRANDS</a></li>
+                <li><a href="#" onclick="showPage('account')">ACCOUNT</a></li>
+            </ul>
+            <div class="nav-actions">
+                <!-- Added Login button -->
+                <button class="icon-btn" id="loginBtn" title="Login" onclick="openAuthModal('login')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </button>
+                <button class="icon-btn" id="wishlistBtn" title="Wishlist">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                    <span class="wishlist-count" id="wishlistCount">0</span>
+                </button>
+                <button class="icon-btn" id="cartBtn" title="Cart">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="homePage" class="page active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-bg-animation"></div>
+            <div class="hero-slide active">
+                <img src="images/luxury watch hero.png" alt="Luxury Watch Hero" class="hero-bg">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1 class="hero-title animate-in">CUSTOM WATCHES<br>FOR ANY<br>OCCASION</h1>
+                    <p class="hero-subtitle animate-in">Precision. Legacy. Elegance.</p>
+                    <div class="hero-buttons animate-in">
+                        <button class="btn-primary" onclick="showPage('men')">EXPLORE COLLECTION</button>
+                        <button class="btn-secondary" onclick="showPage('premium')">VIEW PREMIUM</button>
+                    </div>
+                </div>
+            </div>
+            <button class="slider-nav prev" id="prevSlide">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6"/>
+                </svg>
+            </button>
+            <button class="slider-nav next" id="nextSlide">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6"/>
+                </svg>
+            </button>
+        </section>
+
+        <!-- Categories Showcase -->
+        <section class="categories-showcase">
+            <h2 class="section-title">DISCOVER OUR COLLECTIONS</h2>
+            <div class="categories-grid">
+                <div class="category-showcase-card" onclick="showPage('men')">
+                    <div class="category-image-wrapper">
+                        <img src="images/luxury-automatic-watch-silver.jpg" alt="Men's Watches">
+                        <div class="category-overlay"></div>
+                    </div>
+                    <div class="category-info">
+                        <h3>MEN'S WATCHES</h3>
+                        <p>Powerful. Sophisticated. Timeless.</p>
+                        <button class="btn-secondary">Explore</button>
+                    </div>
+                </div>
+                <div class="category-showcase-card" onclick="showPage('women')">
+                    <div class="category-image-wrapper">
+                        <img src="images/luxury-women-rose-gold-diamond-watch.jpg" alt="Women's Watches">
+                        <div class="category-overlay"></div>
+                    </div>
+                    <div class="category-info">
+                        <h3>WOMEN'S WATCHES</h3>
+                        <p>Elegant. Refined. Exquisite.</p>
+                        <button class="btn-secondary">Explore</button>
+                    </div>
+                </div>
+                <div class="category-showcase-card" onclick="showPage('smart')">
+                    <div class="category-image-wrapper">
+                        <img src="images/luxury-hybrid-smartwatch-classic-design.jpg" alt="Smart Watches">
+                        <div class="category-overlay"></div>
+                    </div>
+                    <div class="category-info">
+                        <h3>SMART WATCHES</h3>
+                        <p>Innovation. Connectivity. Style.</p>
+                        <button class="btn-secondary">Explore</button>
+                    </div>
+                </div>
+                <div class="category-showcase-card" onclick="showPage('premium')">
+                    <div class="category-image-wrapper">
+                        <img src="images/luxury-skeleton-tourbillon-watch.jpg" alt="Premium Watches">
+                        <div class="category-overlay"></div>
+                    </div>
+                    <div class="category-info">
+                        <h3>PREMIUM COLLECTION</h3>
+                        <p>Exclusive. Limited. Extraordinary.</p>
+                        <button class="btn-secondary">Explore</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Brand Story -->
+        <section class="brand-story">
+            <div class="story-content">
+                <div class="story-text">
+                    <h2>THE ART OF TIME</h2>
+                    <p>For over a century, CHRONOVA has been at the forefront of horological excellence, crafting timepieces that transcend mere functionality to become wearable works of art.</p>
+                    <p>Each watch is a testament to our unwavering commitment to precision engineering, innovative design, and timeless elegance.</p>
+                    <button class="btn-primary" onclick="showPage('brands')">Our Heritage</button>
+                </div>
+                <div class="story-image">
+                    <img src="images/luxury-watch-moon-phase-complication.jpg" alt="Watch Mechanism">
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+  <div class="features-grid">
+
+    <div class="feature-item">
+      <div class="feature-icon">⏱</div>
+      <h3>Precision Engineering</h3>
+      <p>Meticulously crafted movements delivering exceptional accuracy and reliability.</p>
+    </div>
+
+    <div class="feature-item">
+      <div class="feature-icon">💎</div>
+      <h3>Premium Materials</h3>
+      <p>Crafted using sapphire crystal, refined metals, and premium-grade components.</p>
+    </div>
+
+    <div class="feature-item">
+      <div class="feature-icon">🌍</div>
+      <h3>Global Assurance</h3>
+      <p>Worldwide support and service for complete peace of mind.</p>
+    </div>
+
+    <div class="feature-item">
+      <div class="feature-icon">🛠</div>
+      <h3>Artisan Craftsmanship</h3>
+      <p>Expertly assembled with attention to every detail for timeless elegance.</p>
+    </div>
+
+  </div>
+</section>
+
+
+        <!-- Quote Section -->
+        <section class="quote-section">
+            <div class="quote-content">
+                <h2>TIME IS NOT MEASURED.<br>IT IS EXPERIENCED.</h2>
+                <p>Every moment deserves a masterpiece.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Men's Watches Page -->
+    <div id="menPage" class="page">
+        <section class="category-hero">
+            <h1>MEN'S COLLECTION</h1>
+            <p>Timepieces crafted for the modern gentleman</p>
+        </section>
+        
+        <div class="category-container">
+            <div class="filter-sort-bar">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all" data-category="men">All</button>
+                    <button class="filter-btn" data-filter="automatic" data-category="men">Automatic</button>
+                    <button class="filter-btn" data-filter="chronograph" data-category="men">Chronograph</button>
+                    <button class="filter-btn" data-filter="dive" data-category="men">Dive</button>
+                    <button class="filter-btn" data-filter="dress" data-category="men">Dress</button>
+                </div>
+                <select class="sort-select" id="sortSelectMen">
+                    <option value="featured">Featured</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="newest">Newest</option>
+                </select>
+            </div>
+            
+            <div class="products-grid" id="menProductsGrid"></div>
+        </div>
+    </div>
+
+    <!-- Women's Watches Page -->
+    <div id="womenPage" class="page">
+        <section class="category-hero">
+            <h1>WOMEN'S COLLECTION</h1>
+            <p>Elegance and sophistication in every detail</p>
+        </section>
+        
+        <div class="category-container">
+            <div class="filter-sort-bar">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all" data-category="women">All</button>
+                    <button class="filter-btn" data-filter="diamonds" data-category="women">Diamonds</button>
+                    <button class="filter-btn" data-filter="dress" data-category="women">Dress</button>
+                    <button class="filter-btn" data-filter="bracelet" data-category="women">Bracelet</button>
+                    <button class="filter-btn" data-filter="automatic" data-category="women">Automatic</button>
+                </div>
+                <select class="sort-select" id="sortSelectWomen">
+                    <option value="featured">Featured</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="newest">Newest</option>
+                </select>
+            </div>
+            
+            <div class="products-grid" id="womenProductsGrid"></div>
+        </div>
+    </div>
+
+    <!-- Smart Watches Page -->
+    <div id="smartPage" class="page">
+        <section class="category-hero">
+            <h1>SMART COLLECTION</h1>
+            <p>Where technology meets luxury</p>
+        </section>
+        
+        <div class="category-container">
+            <div class="filter-sort-bar">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all" data-category="smart">All</button>
+                    <button class="filter-btn" data-filter="fitness" data-category="smart">Fitness</button>
+                    <button class="filter-btn" data-filter="hybrid" data-category="smart">Hybrid</button>
+                    <button class="filter-btn" data-filter="connected" data-category="smart">Connected</button>
+                </div>
+                <select class="sort-select" id="sortSelectSmart">
+                    <option value="featured">Featured</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="newest">Newest</option>
+                </select>
+            </div>
+            
+            <div class="products-grid" id="smartProductsGrid"></div>
+        </div>
+    </div>
+
+    <!-- Premium Watches Page -->
+    <div id="premiumPage" class="page">
+        <section class="category-hero premium-hero">
+            <h1>PREMIUM COLLECTION</h1>
+            <p>The pinnacle of horological mastery</p>
+        </section>
+        
+        <div class="category-container">
+            <div class="filter-sort-bar">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all" data-category="premium">All</button>
+                    <button class="filter-btn" data-filter="tourbillon" data-category="premium">Tourbillon</button>
+                    <button class="filter-btn" data-filter="complications" data-category="premium">Complications</button>
+                    <button class="filter-btn" data-filter="limited" data-category="premium">Limited Edition</button>
+                </div>
+                <select class="sort-select" id="sortSelectPremium">
+                    <option value="featured">Featured</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="newest">Newest</option>
+                </select>
+            </div>
+            
+            <div class="products-grid" id="premiumProductsGrid"></div>
+        </div>
+    </div>
+
+    <!-- Product Detail Page -->
+    <div id="productPage" class="page">
+        <button class="back-btn" onclick="goBack()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back
+        </button>
+        <div id="productDetail"></div>
+    
+  <!-- ================= REVIEWS SECTION ================= -->
+<div class="product-reviews">
+
+  <h2>Customer Reviews</h2>
+
+<!-- WRITE REVIEW -->
+<div class="write-review">
+  <h3>Write a Review</h3>
+
+  <input type="text" id="reviewName" placeholder="Your Name" />
+
+  <div class="rating-stars" id="ratingStars">
+    <span data-value="1">★</span>
+    <span data-value="2">★</span>
+    <span data-value="3">★</span>
+    <span data-value="4">★</span>
+    <span data-value="5">★</span>
+  </div>
+
+  <textarea id="reviewText" placeholder="Write your review..."></textarea>
+
+  <button id="submitReview">Submit Review</button>
+</div>
+
+<!-- WHERE NEW REVIEWS WILL APPEAR -->
+<div id="reviewsContainer"></div>
+
+    </div>
+    </div>
+<div id="brandsPage" class="page">
+
+  <!-- HERO -->
+  <section class="brands-hero fade-in">
+    <div class="brands-hero-content">
+      <h1>THE WORLD’S FINEST TIMEPIECES</h1>
+      <p>Curated for those who define legacy.</p>
+    </div>
+  </section>
+
+  <!-- STORY SECTION -->
+  <section class="brands-story">
+    <div class="story-block fade-up">
+      <div class="story-text">
+        <h2>Crafted With Purpose</h2>
+        <p>
+          Every Chronova creation embodies heritage, precision, and timeless
+          craftsmanship refined through generations.
+        </p>
+      </div>
+      <div class="story-image">
+        <img src="images/HD-wallpaper-watch-primero-3d-black.jpg" alt="Luxury Watch">
+      </div>
+    </div>
+
+    <div class="story-block reverse fade-up">
+      <div class="story-text">
+        <h2>Designed for Collectors</h2>
+        <p>
+          Our timepieces are created for those who appreciate rarity,
+          engineering excellence, and enduring design.
+        </p>
+      </div>
+      <div class="story-image">
+        <img src="images/bretling.png" alt="Luxury Watch">
+      </div>
+    </div>
+  </section>
+
+  <!-- COLLECTIONS -->
+  <section class="brands-collections fade-up">
+    <h2>Signature Collections</h2>
+
+    <div class="collection-grid">
+      <div class="collection-card">
+        <img src="images/Best-Fossil-Watches.jpg" alt="">
+        <div class="overlay">
+          <h3>Heritage Series</h3>
+          <p>Classic craftsmanship refined.</p>
+        </div>
+      </div>
+
+      <div class="collection-card">
+        <img src="images/Rolex-Daytona-6239-Paul-Newman-2.png" alt="">
+        <div class="overlay">
+          <h3>Modern Icons</h3>
+          <p>Precision built for the present.</p>
+        </div>
+      </div>
+
+      <div class="collection-card">
+        <img src="images/WOS-Limited-Edition-News_0003_WoS-Cart-21344_2.png" alt="">
+        <div class="overlay">
+          <h3>Limited Editions</h3>
+          <p>Exclusive masterpieces.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- PRIVATE APPOINTMENT -->
+<section class="brand-appointment">
+  <div class="appointment-box">
+    <h2>Private Appointment</h2>
+    <p>
+      Request a confidential consultation to access rare and limited timepieces.
+    </p>
+
+    <form class="appointment-form">
+      <input type="text" placeholder="Full Name" required>
+
+      <input type="email" placeholder="Email Address" required>
+
+      <input type="tel" placeholder="Phone Number" required>
+
+      <div class="form-row">
+        <input type="text" placeholder="Country">
+        <input type="text" placeholder="State / Region">
+      </div>
+
+      <input type="text" placeholder="City">
+
+      <textarea placeholder="Message (Optional)"></textarea>
+
+      <button type="submit">Request Appointment</button>
+    </form>
+  </div>
+</section>
+
+
+  <!-- FINAL LINE -->
+  <section class="brand-final fade-up">
+    <p>Time is not owned. It is inherited.</p>
+  </section>
+
+</div>
+
+
+
+    <!-- Account Page -->
+    <div id="accountPage" class="page">
+        <div class="account-container">
+            <div class="account-sidebar">
+                <h2>My Account</h2>
+                <ul class="account-menu">
+                    <li><a href="#" class="account-menu-item active" data-tab="dashboard">Dashboard</a></li>
+                    <li><a href="#" class="account-menu-item" data-tab="orders">My Orders</a></li>
+                    <li><a href="#" class="account-menu-item" data-tab="wishlist">Wishlist</a></li>
+                    <li><a href="#" class="account-menu-item" data-tab="addresses">Addresses</a></li>
+                    <li><a href="#" class="account-menu-item" data-tab="contact">Contact & Feedback</a></li>
+                </ul>
+            </div>
+            
+            <div class="account-content">
+                <div id="dashboardTab" class="account-tab active">
+                    <h2>Dashboard</h2>
+                    <div class="dashboard-cards">
+                        <div class="dashboard-card">
+                            <h3>Total Orders</h3>
+                            <div class="dashboard-value">0</div>
+                        </div>
+                        <div class="dashboard-card">
+                            <h3>Wishlist Items</h3>
+                            <div class="dashboard-value" id="dashboardWishlistCount">0</div>
+                        </div>
+                        <div class="dashboard-card">
+                            <h3>Saved Addresses</h3>
+                            <div class="dashboard-value">0</div>
+                        </div>
+                        <div class="dashboard-card">
+                            <h3>Account Status</h3>
+                            <div class="dashboard-value" style="font-size: 1.5rem;">ACTIVE</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="ordersTab" class="account-tab">
+                    <h2>My Orders</h2>
+                    <div class="empty-state">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <p>No orders yet</p>
+                        <button class="btn-primary" onclick="showPage('men')">Start Shopping</button>
+                    </div>
+                </div>
+
+                <div id="wishlistTab" class="account-tab">
+                    <h2>My Wishlist</h2>
+                    <div id="accountWishlistGrid" class="products-grid"></div>
+                </div>
+
+                <div id="addressesTab" class="account-tab">
+                    <h2>Saved Addresses</h2>
+                    <div class="empty-state">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        <p>No saved addresses</p>
+                        <button class="btn-primary" onclick="alert('Add address functionality')">Add Address</button>
+                    </div>
+                </div>
+
+                <div id="contactTab" class="account-tab">
+                    <h2>Contact & Feedback</h2>
+                    <form class="contact-form" onsubmit="submitContactForm(event)">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <input type="text" placeholder="Subject" required>
+                        <textarea placeholder="Your Message" rows="6" required></textarea>
+                        <button type="submit" class="btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <!-- Cart Page -->
+    <div id="cartPage" class="page">
+        <div class="cart-page-container">
+            <h1>Your Shopping Cart</h1>
+            <div class="breadcrumb">Home › Cart</div>
+            
+            <div class="cart-layout">
+                <div class="cart-items-section">
+                    <div id="cartItemsList"></div>
+                </div>
+                
+          <div class="cart-summary-section">
+    <h2>Order Summary</h2>
+
+    <div class="summary-row">
+        <span>Subtotal:</span>
+        <span id="cartSubtotal">₹0</span>
+    </div>
+
+    <div class="summary-row discount">
+        <span>Discount:</span>
+        <span id="cartDiscount">-₹0</span>
+    </div>
+
+    <div class="summary-row">
+        <span>Shipping:</span>
+        <span id="cartShipping">FREE</span>
+    </div>
+
+
+    <div class="summary-divider"></div>
+
+    <div class="summary-row total">
+        <span>Total:</span>
+        <span id="cartTotal">₹0</span>
+    </div>
+</div>
+         
+                   
+                    
+                    <button class="btn-primary btn-full" onclick="showPage('checkout')">Proceed to Checkout</button>
+                    <button class="btn-secondary btn-full" onclick="showPage('men')">Continue Shopping</button>
+                    
+                    <div class="trust-badges">
+                        <div class="trust-badge">
+                            <span>🔒</span>
+                            <p>Secure Payment</p>
+                        </div>
+                        <div class="trust-badge">
+                            <span>✓</span>
+                            <p>Authentic</p>
+                        </div>
+                        <div class="trust-badge">
+                            <span>↩</span>
+                            <p>Easy Returns</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Page -->
+    <div id="checkoutPage" class="page">
+        <div class="checkout-container">
+            <h1>Checkout</h1>
+            <div class="breadcrumb">Home › Cart › Checkout</div>
+            
+            <div class="checkout-layout">
+                <div class="checkout-form-section">
+                    <div class="checkout-section">
+                        <h2>Shipping Address</h2>
+                        <form id="shippingForm">
+                            <input type="text" placeholder="Full Name" required>
+                            <input type="email" placeholder="Email Address" required>
+                            <input type="tel" placeholder="Phone Number" required>
+                            <input type="text" placeholder="Address Line 1" required>
+                            <input type="text" placeholder="Address Line 2">
+                            <div class="form-row">
+                                <input type="text" placeholder="City" required>
+                                <input type="text" placeholder="State" required>
+                            </div>
+                            <div class="form-row">
+                                <input type="text" placeholder="Postal Code" required>
+                                <input type="text" placeholder="Country" required>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="checkout-section">
+                        <h2>Payment Method</h2>
+                        <div class="payment-options">
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="card" checked>
+                                <span>Credit / Debit Card</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="paypal">
+                                <span>PayPal</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="bank">
+                                <span>Bank Transfer</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="crypto">
+                                <span>Cryptocurrency</span>
+                            </label>
+                        </div>
+                    </div>
+<div class="checkout-section">
+  <h2>Premium Services</h2>
+
+  <label class="checkbox-option">
+    <input type="checkbox" id="serviceGift" onchange="updateCheckoutTotal()">
+    <div>
+      <span class="option-name">Luxury Gift Packing</span>
+      <span class="option-price">+₹50</span>
+    </div>
+    <p class="option-desc">Premium presentation box with silk lining</p>
+  </label>
+
+  <label class="checkbox-option">
+    <input type="checkbox" id="serviceExpress" onchange="updateCheckoutTotal()">
+    <div>
+      <span class="option-name">Express Shipping</span>
+      <span class="option-price">+₹150</span>
+    </div>
+    <p class="option-desc">Delivery within 2–3 business days</p>
+  </label>
+
+  <label class="checkbox-option">
+    <input type="checkbox" id="serviceInsurance" onchange="updateCheckoutTotal()">
+    <div>
+      <span class="option-name">Full Insurance</span>
+      <span class="option-price">+₹300</span>
+    </div>
+    <p class="option-desc">Comprehensive coverage during transit</p>
+  </label>
+
+  <label class="checkbox-option">
+    <input type="checkbox" id="serviceEngraving" onchange="updateCheckoutTotal()">
+    <div>
+      <span class="option-name">Personal Engraving</span>
+      <span class="option-price">+₹250</span>
+    </div>
+    <p class="option-desc">Custom engraving on case back</p>
+  </label>
+</div>
+
+                      <div class="promo-section">
+                        <input type="text" id="promoCodeInput" placeholder="Promo code">
+                        <button class="btn-secondary" onclick="applyPromoCode()">Apply</button>
+                    </div>
+                    <div id="promoMessage"></div>
+                </div>
+                
+                <div class="checkout-summary-section">
+                    <h2>Order Summary</h2>
+                    <div id="checkoutItemsList"></div>
+                    
+                    <div class="checkout-totals">
+                       <div class="summary-row">
+ 
+      
+    </div>
+  </div>
+<div class="checkout-summary">
+
+  <div class="summary-row">
+    <span>MRP</span>
+    <span id="checkoutMrp">₹0</span>
+  </div>
+
+  <div class="summary-row">
+    <span>Discount</span>
+    <span id="checkoutDiscount">-₹0</span>
+  </div>
+
+  <div class="summary-row">
+    <span>Subtotal</span>
+    <span id="checkoutSubtotal">₹0</span>
+  </div>
+
+ <div class="summary-row">
+  <span>Premium Services</span>
+  <div id="premiumServicesList" class="services-list"></div>
+</div>
+
+
+  <div class="summary-row">
+    <span>Shipping</span>
+    <span id="checkoutShipping">₹80</span>
+  </div>
+
+
+  <div class="summary-row promo">
+    <span>Promo Discount</span>
+    <span id="promoDiscount">-₹0</span>
+  </div>
+
+  <div class="summary-row total">
+    <span>Total</span>
+    <span id="checkoutTotal">₹0</span>
+  </div>
+</div>
+
+                    
+                    <button class="btn-primary btn-full" onclick="placeOrder()">Place Order</button>
+                    
+                    <div class="security-badges">
+                        <p>🔒 Secure Checkout</p>
+                        <p>✓ 30-Day Returns</p>
+                        <p>🌍 5-Year Warranty</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Added Premium Authentication Modal -->
+    <div id="authModal" class="auth-modal">
+        <div class="auth-modal-overlay" onclick="closeAuthModal()"></div>
+        <div class="auth-modal-content">
+            <button class="auth-modal-close" onclick="closeAuthModal()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            
+            <div class="auth-tabs">
+                <button class="auth-tab active" onclick="switchAuthTab('login')">LOGIN</button>
+                <button class="auth-tab" onclick="switchAuthTab('register')">REGISTER</button>
+            </div>
+
+            <!-- Login Form -->
+            <div id="loginForm" class="auth-form active">
+                <div class="auth-header">
+                    <h2>WELCOME BACK</h2>
+                    <p>Sign in to your CHRONOVA account</p>
+                </div>
+                <form onsubmit="handleLogin(event)">
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Password</label>
+                        <input type="password" placeholder="Enter your password" required>
+                    </div>
+                    <div class="auth-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox">
+                            <span>Remember me</span>
+                        </label>
+                        <a href="#" class="forgot-password">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="auth-submit-btn">SIGN IN</button>
+                </form>
+                <div class="auth-divider">
+                    <span>OR CONTINUE WITH</span>
+                </div>
+                <div class="social-auth">
+                    <button class="social-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                        </svg>
+                        Google
+                    </button>
+                    <button class="social-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                        Facebook
+                    </button>
+                </div>
+            </div>
+
+            <!-- Register Form -->
+            <div id="registerForm" class="auth-form">
+                <div class="auth-header">
+                    <h2>CREATE ACCOUNT</h2>
+                    <p>Join the CHRONOVA family</p>
+                </div>
+                <form onsubmit="handleRegister(event)">
+                    <div class="input-group">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Password</label>
+                        <input type="password" placeholder="Create a password" required minlength="8">
+                    </div>
+                    <div class="input-group">
+                        <label>Confirm Password</label>
+                        <input type="password" placeholder="Confirm your password" required minlength="8">
+                    </div>
+                    <label class="checkbox-label terms-checkbox">
+                        <input type="checkbox" required>
+                        <span>I agree to the Terms & Conditions and Privacy Policy</span>
+                    </label>
+                    <button type="submit" class="auth-submit-btn">CREATE ACCOUNT</button>
+                </form>
+                <div class="auth-divider">
+                    <span>OR CONTINUE WITH</span>
+                </div>
+                <div class="social-auth">
+                    <button class="social-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                        </svg>
+                        Google
+                    </button>
+                    <button class="social-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                        Facebook
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Added Premium Notification Toast -->
+    <div id="notificationToast" class="notification-toast"></div>
+
+    <!-- Premium Footer -->
+    <footer class="premium-footer">
+        <div class="footer-container">
+            <div class="footer-section footer-brand">
+                <div class="footer-logo">
+                    <div class="footer-logo-icon">C</div>
+                    <span>CHRONOVA</span>
+                </div>
+                <p class="footer-description">Crafting exceptional timepieces for those who value precision, heritage, and excellence. Every watch tells a story of timeless elegance.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                    <a href="#" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                    <a href="#" aria-label="Twitter"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
+                    <a href="#" aria-label="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>COLLECTIONS</h3>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="showPage('men')">Men's Watches</a></li>
+                    <li><a href="#" onclick="showPage('women')">Women's Watches</a></li>
+                    <li><a href="#" onclick="showPage('smart')">Smart Watches</a></li>
+                    <li><a href="#" onclick="showPage('premium')">Premium Collection</a></li>
+                    <li><a href="#" onclick="showPage('brands')">International Brands</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>CUSTOMER CARE</h3>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="showPage('account')">My Account</a></li>
+                    <li><a href="#" onclick="showPremiumNotification('Track Orders feature coming soon!')">Track Orders</a></li>
+                    <li><a href="#" onclick="showPage('account', 'contact')">Contact Us</a></li>
+                    <li><a href="#" onclick="showPage('account', 'contact')">Feedback</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>INFORMATION</h3>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="showPremiumNotification('About Us page coming soon!')">About Us</a></li>
+                    <li><a href="#" onclick="showPremiumNotification('Privacy Policy available in your account settings')">Privacy Policy</a></li>
+                    <li><a href="#" onclick="showPremiumNotification('Terms & Conditions available in your account settings')">Terms & Conditions</a></li>
+                    <li><a href="#" onclick="showPremiumNotification('All CHRONOVA watches include a comprehensive 5-year international warranty')">Warranty Information</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <p class="footer-copyright">&copy; 2025 Chronova. All rights reserved.</p>
+                <div class="footer-trust-badges">
+                    <span class="trust-badge-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Secure Payments</span>
+                    <span class="trust-badge-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Authentic Products</span>
+                    <span class="trust-badge-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Global Warranty</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
